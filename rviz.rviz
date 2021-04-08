@@ -7,7 +7,7 @@ Panels:
         - /Global Options1
         - /TF1/Frames1
         - /TF1/Tree1
-      Splitter Ratio: 0.7176470756530762
+      Splitter Ratio: 0.5659824013710022
     Tree Height: 401
   - Class: rviz/Selection
     Name: Selection
@@ -27,7 +27,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: LaserScan
+    SyncSource: PointCloud2
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -196,8 +196,8 @@ Visualization Manager:
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 1.2452490329742432
-        Min Value: -0.2952132225036621
+        Max Value: 1.2147718667984009
+        Min Value: -0.29473233222961426
         Value: true
       Axis: Z
       Channel Name: intensity
@@ -252,11 +252,11 @@ Visualization Manager:
     - Class: rviz/Select
     - Class: rviz/SetInitialPose
       Theta std deviation: 0.2617993950843811
-      Topic: initialpose
+      Topic: /initial_pose
       X std deviation: 0.5
       Y std deviation: 0.5
     - Class: rviz/SetGoal
-      Topic: goal
+      Topic: /move_base_simple/goal
     - Class: rviz/PublishPoint
       Single click: true
       Topic: /clicked_point
