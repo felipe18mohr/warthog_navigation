@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+  <include file="$(find warthog_gazebo)/launch/warthog_world.launch" />
+  <!--include file="$(find warthog_navigation)/launch/pc2ls.launch" /-->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find warthog_navigation)/rviz.rviz" />
+  <include file="$(find warthog_navigation)/launch/amcl.launch" />
+</launch>

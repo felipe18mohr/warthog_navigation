@@ -3,7 +3,7 @@
   
   <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping">
     
-    <remap from="scan" to="laser_scan"/>
+    <remap from="scan" to="laser/scan"/>
     <rosparam>
       odom_frame: odom
       base_frame: base_link

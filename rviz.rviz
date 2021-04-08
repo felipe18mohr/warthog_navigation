@@ -188,7 +188,7 @@ Visualization Manager:
       Size (Pixels): 4
       Size (m): 0.05999999865889549
       Style: Points
-      Topic: /laser_scan
+      Topic: /laser/scan
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
