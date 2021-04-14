@@ -2,7 +2,7 @@
 
 ![Warthog Navigation](images/navigation.png)
 
-Crie um workspace e clone os pacotes necessários:
+Create a workspace and clone the needed packages:
 ``` bash
 $ mkdir -p ~/warthog_ws/src 
 $ cd ~/warthog_ws/src
@@ -12,13 +12,13 @@ $ git clone https://github.com/warthog-cpr/warthog_desktop
 $ git clone https://github.com/felipe18mohr/warthog_navigation
 ```
 
-Instale as dependências e compile:
+Install all dependencies and compile:
 ``` bash
-Atualizar o package.xml
+$ rosdep install --from-paths src --ignore-src --rosdistro=noetic -y
 $ cd ../ && catkin_make
 ```
 
-No aquivo **accessories.urdf.xacro** do pacote *warthog_description*, adicione as seguintes linhas:
+In the **accessories.urdf.xacro** file of the *warthog_description* package, add the following lines:
 ```xml
   <xacro:include filename="$(find velodyne_description)/urdf/VLP-16.urdf.xacro" />
   <xacro:VLP-16 max_range="40" samples="600" hz="5" lasers="8">
@@ -32,8 +32,7 @@ No aquivo **accessories.urdf.xacro** do pacote *warthog_description*, adicione a
 ```
 
 
-
-Altere as configurações odom0 e imu0 do arquivo **control.yaml** do pacote *warthog_control* para os seguintes:
+Change the odom0 and imu0 setting from the **control.yaml** file in the *warthog_control* package to the following:
 ```yaml
   odom0_config: [false, false, false,
                  false, false, false,
@@ -48,8 +47,19 @@ Altere as configurações odom0 e imu0 do arquivo **control.yaml** do pacote *wa
                 false, false, false]
 ```
 
-Launch:
+Launch navigation:
 ``` bash
 $ source devel/setup.bash
 $ roslaunch warthog_navigation main.launch
+```
+
+You can change the *main.launch* file with the launchs you want to perform your task.
+
+To save a map using *octomap_mapping.launch*, use:
+```bash
+$ rosrun octomap_server octomap_saver -f map.bt
+```
+To load that map:
+```bash
+$ rosrun octomap_server octomap_server_node map.bt
 ```
